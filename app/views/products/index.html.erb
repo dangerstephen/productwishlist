@@ -1,0 +1,18 @@
+<% for product in @products %>
+  <div class="product">
+    <h3>
+      <%= product.name %>
+      <% if product.price %>
+        <%= number_to_currency(product.price) %>
+      <% else %>
+        No Price
+      <% end %>
+    </h3>
+    <div class="actions">
+      <%= link_to "Edit", edit_product_path(product) %> |
+      <%= link_to "Destroy", product, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+  </div>
+<% end %>
+
+<p><%= link_to "New Product", new_product_path %></p>
